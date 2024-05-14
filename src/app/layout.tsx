@@ -8,6 +8,16 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+const TopNav = () => {
+  return (
+    <nav className="flex items-center justify-between gap-4 p-4 text-2xl border-b-2">
+      <div>Gallery</div>
+      <div>Sign In</div>
+    </nav>
+  )
+}
+
+
 export default function RootLayout({
   children,
 }: {
@@ -15,7 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body className=" flex flex-col gap-4">
+        <TopNav />
+        {children}
+        </body>
     </html>
   );
 }
