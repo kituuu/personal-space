@@ -9,7 +9,7 @@
 - [x] Actually set up a database (versel postgres)
 - [x] Attach database to UI  
 - [x] Add authentication (w/ clerk)
-- [ ] Add image upload
+- [x] Add image upload
 - [ ] "taint" (server only)
 - [ ] use next/Image
 - [ ] Image uploading (w /sentry)
