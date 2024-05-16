@@ -5,7 +5,7 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {
+const coreConfig = {
     images:{
         remotePatterns: [
             {hostname: 'utfs.io'}
@@ -18,5 +18,23 @@ const config = {
         ignoreDuringBuilds:true
     }
 };
+
+import { withSentryConfig } from "@sentry/nextjs";
+
+const config = withSentryConfig(
+    coreConfig,
+    {
+        silent: true,
+        org: "kituuus-playground",
+        project: "t3-gallery",
+        widenClientFileUpload: true,
+        // transpileClientSDK: true,
+        // Reroute traffic so that adblockers can't block it 
+        tunnelRoute: '/monitoring',
+        hideSourceMaps: true,
+        disableLogger: true,
+        automaticVercelMonitors: true,
+      }
+);
 
 export default config;
