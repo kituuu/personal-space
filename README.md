@@ -15,6 +15,6 @@
 - [x] Error management (w /sentry)
 - [x] Routing/ image page (parralel route)
 - [x] Update upload button to be less cringy
-- [ ] Analytics (posthog)
+- [x] Analytics (posthog)
 - [ ] Delete button with server action
 - [ ] Ratelimiting (upstash)
