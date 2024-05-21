@@ -6,8 +6,8 @@ const FullPageImageView = async (props: { id: number }) => {
   // getting the uploader info as image has only userId
   const uploaderInfo = await clerkClient.users.getUser(image.userId);
   return (
-    <div className="flex h-full w-full min-w-0">
-      <div className="flex h-full flex-shrink items-center justify-center">
+    <div className="flex flex-row h-full w-full min-w-0 justify-between">
+      <div className="flex h-full w-full flex-shrink items-center justify-center">
         <img src={image.url} className="h-full flex-shrink object-contain" />
       </div>
       <div className="flex w-56 flex-shrink-0 flex-col border-[1px]">
