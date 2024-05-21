@@ -2,12 +2,13 @@ import "~/styles/globals.css";
 import "@uploadthing/react/styles.css"; // uploadthing custom css
 import { GeistSans } from "geist/font/sans";
 
-import { ClerkProvider} from '@clerk/nextjs'
+import { ClerkProvider } from "@clerk/nextjs";
 import { TopNav } from "./_components/topnav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "~/components/ui/sonner";
+import { CSPostHogProvider } from "./_analytics/AnalyticsProvider";
 
 export const metadata = {
   title: "T3 Gallery",
@@ -17,27 +18,27 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-  modal // make a @modal route first to dismiss this error
+  modal, // make a @modal route first to dismiss this error
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
-    <html lang="en" className={`${GeistSans.variable}`}>
-    <NextSSRPlugin
-          routerConfig={extractRouterConfig(ourFileRouter)}
-        />
-      <body className={`font-sans dark`}>
-        <div className="h-screen grid grid-rows-[auto,1fr]">
-        <TopNav />
-        <main className="overflow-y-scroll">{children}</main>
-        </div>
-        {modal}
-        <div id="modal-root" />
-        <Toaster />
-        </body>
-    </html>
+      <CSPostHogProvider>
+        <html lang="en" className={`${GeistSans.variable}`}>
+          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+          <body className={`dark font-sans`}>
+            <div className="grid h-screen grid-rows-[auto,1fr]">
+              <TopNav />
+              <main className="overflow-y-scroll">{children}</main>
+            </div>
+            {modal}
+            <div id="modal-root" />
+            <Toaster />
+          </body>
+        </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }
