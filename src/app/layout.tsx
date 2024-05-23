@@ -9,6 +9,7 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "~/components/ui/sonner";
 import { CSPostHogProvider } from "./_analytics/AnalyticsProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "T3 Gallery",
@@ -36,6 +37,7 @@ export default function RootLayout({
             {modal}
             <div id="modal-root" />
             <Toaster />
+            <SpeedInsights />
           </body>
         </html>
       </CSPostHogProvider>
