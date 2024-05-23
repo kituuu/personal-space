@@ -31,7 +31,7 @@ export default function RootLayout({
           <body className={`dark font-sans`}>
             <div className="grid h-screen grid-rows-[auto,1fr]">
               <TopNav />
-              <main className="overflow-y-scroll">{children}</main>
+              <main className="overflow-y-scroll py-3">{children}</main>
             </div>
             {modal}
             <div id="modal-root" />
