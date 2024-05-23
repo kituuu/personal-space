@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
-import analyticsServerClient from "./posthog";
+import analyticsServerClient from "./anaytics";
 
 export const getMyImages = async () => {
   const user = auth();

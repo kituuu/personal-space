@@ -1,13 +1,12 @@
 # T3 Gallery
 
-
 ## TODO
 
 - [x] Make it deploy
 - [x] Scaffold basic ui with mock data
 - [x] Tidy up build process
 - [x] Actually set up a database (versel postgres)
-- [x] Attach database to UI  
+- [x] Attach database to UI
 - [x] Add authentication (w/ clerk)
 - [x] Add image upload
 - [x] "taint" (server only)
@@ -16,5 +15,5 @@
 - [x] Routing/ image page (parralel route)
 - [x] Update upload button to be less cringy
 - [x] Analytics (posthog)
-- [ ] Delete button with server action
+- [x] Delete button with server action
 - [ ] Ratelimiting (upstash)
